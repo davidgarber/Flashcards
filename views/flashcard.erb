@@ -1,0 +1,15 @@
+<h2><%= @flashcard.name %></h2>
+
+<div class="box">
+  <a class="button" href="#popup">Show Answer</a>
+</div>
+
+<div id="popup" class="overlay">
+  <div class="popup">
+    <h3>Answer:</h3>
+    <a class="close" href="#">Close</a>
+    <div class="content">
+      <%= @flashcard.definition %>
+    </div>
+  </div>
+</div>
