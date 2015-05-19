@@ -76,7 +76,7 @@ Flashcard.create({"name" => "What are media queries and how do you use them?", "
 
 Flashcard.create({"name" => "How do you make images usable for blind people who are using a screen reader?", "definition" => "Make sure all your images have ALT tags."})
 
-Flashcard.create({"name" => "What's the difference between =, ==, and === in JavaScript?", "definition" => ""=" is a simple assignment operator. The other are strict comparison operators: "==" means equals, whereas "===" means identically equal."})
+Flashcard.create({"name" => "What's the difference between =, ==, and === in JavaScript?", "definition" => "'=' is a simple assignment operator. The other are strict comparison operators: '==' means equals, whereas '===' means identically equal."})
 
 Flashcard.create({"name" => "What's the difference between an undefined and undeclared variable in JavaScript?", "definition" => "Undefined variables are declared but defined in the program. Undeclared variables are those not declared in the program. "})
 
