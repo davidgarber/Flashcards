@@ -1,0 +1,8 @@
+header {
+  background: linear-gradient(to right, white, lightgray, white);
+}
+
+body {
+  font-family: 'Lato', Arial;
+  text-align: center;
+}
