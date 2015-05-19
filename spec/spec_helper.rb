@@ -2,6 +2,7 @@ ENV['RACK_ENV'] = 'test'
 
 require('sinatra/activerecord')
 require('capybara/rspec')
+require('flashcard')
 require('rspec')
 require('pry')
 require('pg')

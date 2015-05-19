@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Epicodus Flashcards</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/main.css">
+  </head>
+  <body>
+    <header>
+      <h1>Ruby, JavaScript, and Rails Flashcards</h1>
+    </header>
+    <div class="container">
+      <%= yield %>
+      <footer>
+        <br>
+        <button class="btn"><a href="/">Home</a></button>
+        <button class="btn"><a href="/flashcard">Start Studying</a></button>
+        <button class="btn"><a href="/correct">View Correct Flashcards</a></button>
+      </footer>
+    </div>
+  </body>
+</html>
