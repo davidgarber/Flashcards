@@ -1,0 +1,30 @@
+
+<h2><%= @flashcard.name %></h2>
+
+
+
+
+<% if @flashcards.any?() %>
+  <form action="/quiz/<%= @flashcard.id %>" method="post">
+    <input type="hidden" name="_method" value="patch">
+
+    <div class="checkbox">
+      <label><input type="radio" name="answer1" value="<% @flashcard.definition %>"><%= @flashcard.definition %></label>
+      <label><input type="radio" name="answer1" value="<% @flashcard.wrong1 %>"><%= @flashcard.wrong1 %></label>
+      <label><input type="radio" name="answer1" value="<% @flashcard.wrong2 %>"><%= @flashcard.wrong2 %></label>
+      <label><input type="radio" name="answer1" value="<% @flashcard.wrong3 %>"><%= @flashcard.wrong3 %></label>
+
+      <br><br><br>
+    </div>
+
+    <!-- <% @flashcards.each() do |flashcard| %>
+    <div class="checkbox">
+
+      <label>
+      <h4><input type="radio" name="answer" value="<%= flashcard.id() %>"><%= flashcard.definition() %></h4></label>
+      </div>
+      <% end %>
+      <br>
+      <button type="submit">Update</button>
+    </form>
+    <% end %> -->
