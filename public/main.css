@@ -1,5 +1,5 @@
 header {
-  background: linear-gradient(to right, white, orange, white);
+  background: linear-gradient(to right, #fff, #ff9900, #fff);
 }
 
 body {
@@ -53,11 +53,14 @@ body {
   margin-top: 150px;
   padding: 20px;
   background: #fff;
+    background: -moz-linear-gradient(#fff, #999);
+    background: -webkit-linear-gradient(#fff, #999);
+    background: -o-linear-gradient(#fff, #999);
   border-radius: 5px;
   border-color: blue;
   width: 40%;
   position: relative;
-  transition: all 5s ease-in-out;
+  transition: all 1s ease-in-out;
 }
 
 .popup h2 {
@@ -81,4 +84,10 @@ body {
 .popup .content {
   max-height: 30%;
   overflow: auto;
+}
+
+.buttonsgo form,
+.buttonsgo form div {
+  display: inline;
+  margin-top: 20px;
 }

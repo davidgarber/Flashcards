@@ -11,6 +11,17 @@
     <a class="close" href="#">Close</a>
     <div class="content">
       <%= @flashcard.definition %>
+      <br>
+      <div class="buttonsgo">
+        <form action="/flashcard_success" method="post">
+          <input name="_method" type="hidden" value="patch">
+          <input name="id" type="hidden" value="<%= @flashcard.id %>">
+          <button type="submit" class="btn btn-info">Got It!</button>
+        </form>
+        <form action="/flashcard" method="get">
+          <button type="submit" class="btn btn-danger">Not It!</button>
+        </form>
+      </div>
     </div>
   </div>
 </div>
