@@ -33,6 +33,11 @@ get('/correct') do
   erb(:correct_cards)
 end
 
+patch('/reset_flashcards') do
+  Flashcard.update_all(:correct => false)
+  redirect('/flashcard')
+end
+
 
 get('/quiz') do
   @flashcard = Flashcard.get_question
