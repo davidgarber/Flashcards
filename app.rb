@@ -2,6 +2,8 @@ require("bundler/setup")
 Bundler.require(:default, :production)
 Dir[File.dirname(__FILE__) + '/lib/*.rb'].each { |file| require file }
 
+# @@flashcards = Flashcard.all
+
 get('/') do
   erb(:index)
 end
@@ -14,6 +16,8 @@ end
 # end
 
 get('/flashcard') do
+  # @flashcard = @@flashcards.sample
+
   @flashcard = Flashcard.get_question
   erb(:flashcard)
 end
