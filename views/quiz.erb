@@ -5,6 +5,7 @@
 
 
 <% if @flashcards.any?() %>
+
   <form action="/quiz/<%= @flashcard.id %>" method="post">
     <input type="hidden" name="_method" value="patch">
 
