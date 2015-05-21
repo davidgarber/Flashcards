@@ -30,4 +30,9 @@
 
 <% else %>
   <h3>You win at life, no more flashcards</h3>
+  <h3>Would you like to start again?</h3>
+  <form action ="/reset_flashcards" method="post">
+    <input name="_method" type="hidden" value="patch">
+    <button type="submit" class="btn btn-danger">Reset Flashcards</button>
+  </form>
 <% end %>
