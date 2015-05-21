@@ -11,30 +11,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150520172739) do
+ActiveRecord::Schema.define(version: 20150521171444) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
-
-  create_table "answers", force: :cascade do |t|
-    t.string "answer"
-  end
 
   create_table "flashcards", force: :cascade do |t|
     t.string  "name"
     t.string  "definition"
     t.boolean "correct",    default: false
-  end
-
-  create_table "questions", force: :cascade do |t|
-    t.string  "question"
-    t.boolean "correct"
-  end
-
-  create_table "wrong_answers", force: :cascade do |t|
-    t.string "wrong_answer1"
-    t.string "wrong_answer2"
-    t.string "wrong_answer3"
   end
 
 end
