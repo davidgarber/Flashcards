@@ -3,6 +3,8 @@
 
 
   <form action="/quiz" method="post">
+  <input type="hidden" name="definition" value="<%= @flashcard.definition %>">
+
     <% @choices.each() do |choice| %>
     <div class="radio">
       <label><input type="radio" name="answer" value="<%= choice %>"><%= choice %></label>
