@@ -1,27 +1,33 @@
+<% if @flashcard.!=nil %>
 
-<h2><%= @flashcard.name %></h2>
 
-<div class="box">
-  <a class="button" href="#popup">Show Answer</a>
-</div>
+  <h2><%= @flashcard.name %></h2>
 
-<div id="popup" class="overlay">
-  <div class="popup">
-    <h3>Answer:</h3>
-    <a class="close" href="#">Close</a>
-    <div class="content">
-      <%= @flashcard.definition %>
-      <br>
-      <div class="buttonsgo">
-        <form action="/flashcard_success" method="post">
-          <input name="_method" type="hidden" value="patch">
-          <input name="id" type="hidden" value="<%= @flashcard.id %>">
-          <button type="submit" class="btn btn-info">Got It!</button>
-        </form>
-        <form action="/flashcard" method="get">
-          <button type="submit" class="btn btn-danger">Not It!</button>
-        </form>
+  <div class="box">
+    <a class="button" href="#popup">Show Answer</a>
+  </div>
+
+  <div id="popup" class="overlay">
+    <div class="popup">
+      <h3>Answer:</h3>
+      <a class="close" href="#">Close</a>
+      <div class="content">
+        <%= @flashcard.definition %>
+        <br>
+        <div class="buttonsgo">
+          <form action="/flashcard_success" method="post">
+            <input name="_method" type="hidden" value="patch">
+            <input name="id" type="hidden" value="<%= @flashcard.id %>">
+            <button type="submit" class="btn btn-info">Got It!</button>
+          </form>
+          <form action="/flashcard" method="get">
+            <button type="submit" class="btn btn-danger">Not It!</button>
+          </form>
+        </div>
       </div>
     </div>
   </div>
-</div>
+
+<% else %>
+  <h3>You win at life, no more flashcards</h3>
+<% end %>
