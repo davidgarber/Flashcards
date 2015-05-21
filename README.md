@@ -57,11 +57,4 @@ Everyone else ask.
 KNOWN BUGS
 ==========
 
-When one cycles through all of the flashcards, in order to start over, the user
-must got to Bash in the terminal and type:
-
-$ rake db:drop
-
-$ rake db:create
-
-$ rake db:migrate 
+None
