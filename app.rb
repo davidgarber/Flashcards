@@ -17,3 +17,14 @@ get('/flashcard') do
   @flashcard = Flashcard.get_question
   erb(:flashcard)
 end
+
+patch('/flashcard_success') do
+  flashcard = Flashcard.find(params.fetch("id"))
+  flashcard.update(correct: true)
+  redirect('/flashcard')
+end
+
+get('/correct') do
+  @flashcards = Flashcard.where("correct = true")
+  erb(:correct_cards)
+end
