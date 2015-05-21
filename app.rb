@@ -39,23 +39,22 @@ get('/quiz') do
   @wronganswer2 = Flashcard.find(@wrong2)
   @wronganswer3 = Flashcard.find(@wrong3)
 
+  @choice1 = @flashcard.definition
+  @choice2 = @wronganswer1.definition
+  @choice3 = @wronganswer2.definition
+  @choice4 = @wronganswer3.definition
+  @choices = []
+  @choices.push(@choice1, @choice2, @choice3, @choice4)
+  @choices.sort_by! { rand }
+
   erb(:quiz)
 end
 
 post('/quiz') do
   @answer = params.fetch("answer")
-  @definition = params.fetch("definition")
   erb(:success)
-  #redirect('/quiz')
 end
 
-# patch('/quiz') do
-#   @answer = params.fetch("answer")
-#   @flashcard = Flashcard.find(params.fetch("id"))
-#   #erb(:quiz)
-#
-#   redirect('/quiz')
-# end
 
 get('/success') do
   erb(:success)
