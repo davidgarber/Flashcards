@@ -2,22 +2,14 @@
 <h2><%= @flashcard.name %></h2>
 
 
-
-
-<% if @flashcards.any?() %>
-  <form action="/quiz/<%= @flashcard.id %>" method="post">
-    <input type="hidden" name="_method" value="patch">
-
-    <div class="checkbox">
-      <label><input type="radio" name="answer1" value="<% @flashcard.definition %>"><%= @flashcard.definition %></label>
-      <label><input type="radio" name="answer1" value="<% @wronganswer1.definition %>"><%= @wronganswer1.definition %></label>
-      <label><input type="radio" name="answer1" value="<% @wronganswer2.definition %>"><%= @wronganswer2.definition %></label>
-      <label><input type="radio" name="answer1" value="<% @wronganswer3.definition %>"><%= @wronganswer3.definition %></label>
-
-      <br><br><br>
+  <form action="/quiz" method="post">
+  <input type="hidden" name="definition" value="<%= @flashcard.definition %>">
+    <div class="radio">
+      <label><input type="radio" name="answer" value="Correct!"><%= @flashcard.definition %></label>
+      <label><input type="radio" name="answer" value="Not Correct"><%= @wronganswer1.definition %></label>
+      <label><input type="radio" name="answer" value="Not Correct"><%= @wronganswer2.definition %></label>
+      <label><input type="radio" name="answer" value="Not Correct"><%= @wronganswer3.definition %></label>
     </div>
-
-      <br>
-      <button type="submit">Update</button>
+      <br><br><br>
+      <button type="submit">Submit</button>
     </form>
-    <% end %>
