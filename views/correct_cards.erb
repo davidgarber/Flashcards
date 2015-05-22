@@ -1,9 +1,11 @@
 <h2>I thought you knew these already...</h2>
+<p>--------------</p>
 
 <% if @flashcards.any? %>
   <ul>
     <% @flashcards.each do |f| %>
-      <li><%= f.name %> : <%= f.definition %></li>
+      <h3><%= f.name %></h3>
+      <p><%= f.definition %></p>
       <br>
     <% end %>
   </ul>
