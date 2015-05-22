@@ -28,7 +28,7 @@ body {
 }
 
 .button:hover {
-  background: orange;
+  background: lightgray;
 }
 
 .overlay{
