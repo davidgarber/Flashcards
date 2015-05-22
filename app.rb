@@ -16,10 +16,27 @@ end
 # end
 
 get('/flashcard') do
-  # @flashcard = @@flashcards.sample
-
   @flashcard = Flashcard.get_question
   erb(:flashcard)
+end
+
+get('/add_card') do
+  erb(:add_card)
+end
+
+post('/add_card') do
+  name = params.fetch("name")
+  definition = params.fetch("definition")
+  flashcard = Flashcard.new({:name => name, :definition => definition})
+  if flashcard.save
+    redirect('/add_card_success')
+  else
+    erb(:card_add_error)
+  end
+end
+
+get('/add_card_success') do
+  erb(:card_success)
 end
 
 patch('/flashcard_success') do
