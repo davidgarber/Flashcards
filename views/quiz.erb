@@ -1,6 +1,5 @@
 
-<h2><%= @flashcard.name %></h2>
-
+<h3><%= @flashcard.name %></h3>
 
   <form action="/quiz" method="post">
   <input type="hidden" name="definition" value="<%= @flashcard.definition %>">
@@ -13,3 +12,14 @@
       <br><br><br>
       <button type="submit">Submit</button>
     </form>
+
+
+<div id="error" class="overlay">
+  <div class="popup">
+    <a class="close" href="#">Close</a>
+    <br>
+    <div class="content">
+      <h4>Don't forget to make a selection before clicking Submit.</h4>
+    </div>
+  </div>
+</div>

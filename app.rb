@@ -61,15 +61,21 @@ get('/quiz') do
 end
 
 post('/quiz') do
-  @answer = params.fetch("answer")
-  @definition = params.fetch("definition")
-  if
-    @answer == @definition
-    @correct = "Correct!"
+ @answer = params["answer"]
+  if @answer == nil
+     redirect ('/quiz#error')
   else
-    @correct = "Not Correct"
+    @answer = params.fetch("answer")
+    @definition = params.fetch("definition")
+    if
+      @answer == @definition
+      @correct = "Correct!"
+    else
+      @correct = "Not Correct"
+    end
+    erb(:success)
   end
-  erb(:success)
+
 end
 
 
