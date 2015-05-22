@@ -2,22 +2,11 @@ require("bundler/setup")
 Bundler.require(:default, :production)
 Dir[File.dirname(__FILE__) + '/lib/*.rb'].each { |file| require file }
 
-# @@flashcards = Flashcard.all
-
 get('/') do
   erb(:index)
 end
 
-# get('/flashcard') do
-#   max_num=Flashcard.count
-#   rand_num = Random.new.rand(1...max_num)
-#   @flashcard = Flashcard.find(rand_num)
-#   erb(:flashcard)
-# end
-
 get('/flashcard') do
-  # @flashcard = @@flashcards.sample
-
   @flashcard = Flashcard.get_question
   erb(:flashcard)
 end
@@ -37,6 +26,27 @@ patch('/reset_flashcards') do
   Flashcard.update_all(:correct => false)
   redirect('/flashcard')
 end
+
+get('/add_card') do
+  erb(:add_card)
+end
+
+post('/add_card') do
+  name = params.fetch("name")
+  definition = params.fetch("definition")
+  flashcard = Flashcard.new({:name => name, :definition => definition})
+  if flashcard.save
+    redirect('/add_card_success')
+  else
+    erb(:card_add_error)
+  end
+end
+
+get('/add_card_success') do
+  erb(:card_success)
+end
+
+
 
 
 get('/quiz') do
