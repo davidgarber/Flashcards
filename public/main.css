@@ -91,3 +91,9 @@ body {
   display: inline;
   margin-top: 20px;
 }
+
+.radio {
+  align: left;
+  text-align: left;
+
+}

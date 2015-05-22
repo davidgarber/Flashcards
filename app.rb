@@ -16,27 +16,10 @@ end
 # end
 
 get('/flashcard') do
+  # @flashcard = @@flashcards.sample
+
   @flashcard = Flashcard.get_question
   erb(:flashcard)
-end
-
-get('/add_card') do
-  erb(:add_card)
-end
-
-post('/add_card') do
-  name = params.fetch("name")
-  definition = params.fetch("definition")
-  flashcard = Flashcard.new({:name => name, :definition => definition})
-  if flashcard.save
-    redirect('/add_card_success')
-  else
-    erb(:card_add_error)
-  end
-end
-
-get('/add_card_success') do
-  erb(:card_success)
 end
 
 patch('/flashcard_success') do
@@ -78,15 +61,21 @@ get('/quiz') do
 end
 
 post('/quiz') do
-  @answer = params.fetch("answer")
-  @definition = params.fetch("definition")
-  if
-    @answer == @definition
-    @correct = "Correct!"
+ @answer = params["answer"]
+  if @answer == nil
+     redirect ('/quiz#error')
   else
-    @correct = "Not Correct"
+    @answer = params.fetch("answer")
+    @definition = params.fetch("definition")
+    if
+      @answer == @definition
+      @correct = "Correct!"
+    else
+      @correct = "Not Correct"
+    end
+    erb(:success)
   end
-  erb(:success)
+
 end
 
 
